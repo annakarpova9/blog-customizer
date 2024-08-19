@@ -23,13 +23,13 @@ import { FormEvent, MutableRefObject, useState } from 'react';
 import clsx from 'clsx';
 
 type TAppState = {
-	appState: ArticleStateType;
 	setAppState: (params: ArticleStateType) => void;
 };
 
-export const ArticleParamsForm = ({ appState, setAppState }: TAppState) => {
+export const ArticleParamsForm = ({ setAppState }: TAppState) => {
 	const [formIsOpen, setFormIsOpen] = useState<boolean>(false);
-	const [formState, setFormState] = useState<ArticleStateType>(appState);
+	const [formState, setFormState] =
+		useState<ArticleStateType>(defaultArticleState);
 
 	const ref: MutableRefObject<HTMLElement> | null = useClickAway(() => {
 		setFormIsOpen(false);
